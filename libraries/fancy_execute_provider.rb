@@ -82,6 +82,6 @@ end
 # Set FancyExecute as the default provider for :execute on Linux platforms
 if Gem::Version.new(Chef::VERSION) < Gem::Version.new('12.0.0')
   %w(debian ubuntu fedora redhat centos).each do |platform|
-    Chef::Platform.set plaform: platform.to_sym, resource: :execute, provider: Chef::Provider::AFancyExecute
+    Chef::Platform.set plaform: platform.to_sym, resource: :execute, provider: Chef::Provider::AFancyExecute, override: true
   end
 end
