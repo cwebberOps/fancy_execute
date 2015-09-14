@@ -46,7 +46,7 @@ class Chef
       def action_run
         opts = {}
 
-        if sentinel_file = sentinel_file_if_exists
+        if creates && sentinel_file.exist?
           Chef::Log.debug("#{@new_resource} sentinel file #{sentinel_file} exists - nothing to do")
           return false
         end
