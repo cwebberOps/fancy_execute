@@ -37,7 +37,7 @@ end
 
 class Chef
   class Provider
-    class FancyExecute < Chef::Provider::Execute
+    class AFancyExecute < Chef::Provider::Execute
 
       if Gem::Version.new(Chef::VERSION) >= Gem::Version.new('12.0.0')
         provides :execute
@@ -82,6 +82,6 @@ end
 # Set FancyExecute as the default provider for :execute on Linux platforms
 if Gem::Version.new(Chef::VERSION) < Gem::Version.new('12.0.0')
   %w(debian ubuntu fedora redhat centos).each do |platform|
-    Chef::Platform.set plaform: platform.to_sym, resource: :execute, provider: Chef::Provider::FancyExecute
+    Chef::Platform.set plaform: platform.to_sym, resource: :execute, provider: Chef::Provider::AFancyExecute
   end
 end
